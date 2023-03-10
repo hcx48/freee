@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relógio Digital</title>
+</head>
+
+<body>
+
+<div class="clock">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&display=swap');
+.clock {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+.clock {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.relogio {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 93px;
+    width: 573px;
+    background: #ff5900;
+    border-radius: 50px;
+    box-shadow: 0px 8px 10px rgba(0, 0, 0, .5);
+}
+
+.relogio div {
+    border: solid transparent 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border-radius: 7px;
+    letter-spacing: 3px;
+}
+
+.relogio span {
+    font-weight: bolder;
+    font-size: 46px;
+}
+
+.relogio span.tempo {
+    font-size: 11px;
+}
+    ion-icon {
+        width: 100px;
+    }
+
+
+    </style>
+
+
+
+    <div class="relogio">
+        <div>
+            <span id="clock"><ion-icon name="time"></ion-icon></span>
+        </div>
+        <div>
+            <span id="dias">22</span>
+            <span class="tempo">dias</span>
+        </div>
+        <div>
+            <span id="horas">00</span>
+            <span class="tempo">Horas</span>
+        </div>
+
+        <div>
+            <span id="minutos">00</span>
+            <span class="tempo">Minutos</span>
+        </div>
+
+        <div>
+            <span id="segundos">00</span>
+            <span class="tempo">Segundos</span>
+        </div>
+    </div>
+
+    <script>
+
+<!----contador---->
+
+const horas = document.getElementById('horas');
+const minutos = document.getElementById('minutos');
+const segundos = document.getElementById('segundos');
+
+const relogio = setInterval(function time() {
+    let dateToday = new Date();
+    let di = dateToday.getDate();
+    let hr = dateToday.getHours();
+    let min = dateToday.getMinutes();
+    let s = dateToday.getSeconds();
+
+    if (hr < 10) di = '0' + di;
+
+    if (hr < 10) hr = '0' + hr;
+
+    if (min < 10) min = '0' + min;
+
+    if (s < 10) s = '0' + s;
+
+    horas.textContent = hr;
+    minutos.textContent = min;
+    segundos.textContent = s;
+
+})
+
+
+    </script>
+
+<!--icone clock-->
+<script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+</div>
+</body>
+
+
+</html>
